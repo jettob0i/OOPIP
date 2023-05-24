@@ -8,10 +8,12 @@
 
 
 
-HINSTANCE hInst;                                
-WCHAR szTitle[MAX_LOADSTRING];                  
-WCHAR szWindowClass[MAX_LOADSTRING];           
+// Глобальные переменные:
+HINSTANCE hInst;                                // текущий экземпляр
+WCHAR szTitle[MAX_LOADSTRING];                  // Текст строки заголовка
+WCHAR szWindowClass[MAX_LOADSTRING];            // имя класса главного окна
 HANDLE hEvent;
+// Отправить объявления функций, включенных в этот модуль кода:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
@@ -25,10 +27,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
+    // TODO: Разместите код здесь.
+
+    // Инициализация глобальных строк
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_WINDOWSPROJECT3, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance);
 
+    // Выполнить инициализацию приложения:
     if (!InitInstance(hInstance, nCmdShow))
     {
         return FALSE;
@@ -38,6 +44,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
+    // Цикл основного сообщения:
     while (GetMessage(&msg, nullptr, 0, 0))
     {
         if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
@@ -50,6 +57,13 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     return (int)msg.wParam;
 }
 
+
+
+//
+//  ФУНКЦИЯ: MyRegisterClass()
+//
+//  ЦЕЛЬ: Регистрирует класс окна.
+//
 ATOM MyRegisterClass(HINSTANCE hInstance)
 {
     WNDCLASSEXW wcex;
@@ -342,3 +356,58 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             CreateThread(0, 0, ThreadFun, &Data[i], 0, 0);
         }
         break;
+    case WM_COMMAND:
+    {
+        wmId = LOWORD(wParam);
+        wmEvent = HIWORD(wParam);
+        // Разобрать выбор в меню:
+        switch (wmId)
+        {
+        case IDM_ABOUT:
+            DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
+            break;
+        case IDM_EXIT:
+            KillTimer(hWnd, 1);
+            DestroyWindow(hWnd);
+            break;
+        default:
+            return DefWindowProc(hWnd, message, wParam, lParam);
+        }
+    }
+    break;
+    case WM_PAINT:
+    {
+        hdc = BeginPaint(hWnd, &ps);
+        // TODO: Добавьте сюда любой код прорисовки, использующий HDC...
+        EndPaint(hWnd, &ps);
+    }
+    break;
+    case WM_DESTROY:
+        KillTimer(hWnd, 1);
+        PostQuitMessage(0);
+        break;
+    default:
+        return DefWindowProc(hWnd, message, wParam, lParam);
+    }
+    return 0;
+}
+
+// Обработчик сообщений для окна "О программе".
+INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
+{
+    UNREFERENCED_PARAMETER(lParam);
+    switch (message)
+    {
+    case WM_INITDIALOG:
+        return (INT_PTR)TRUE;
+
+    case WM_COMMAND:
+        if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
+        {
+            EndDialog(hDlg, LOWORD(wParam));
+            return (INT_PTR)TRUE;
+        }
+        break;
+    }
+    return (INT_PTR)FALSE;
+}
