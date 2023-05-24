@@ -8,7 +8,7 @@ int main()
 {
     HANDLE hEvent;
     setlocale(LC_ALL, "rus");
-    hEvent = OpenEvent(EVENT_ALL_ACCESS, TRUE, L"MyEventl");  
+    hEvent = OpenEvent(EVENT_ALL_ACCESS, TRUE, L"MyEventl");  // Открытие события, созданного в другом приложении  
     if (hEvent == 0)  
     {
         cout << "Ошибка открытия объекта \"Событие \", созданного в другом приложении";   
