@@ -336,3 +336,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         //pF[7] = new MyPoluKrug(100, 1, 3, 0, RGB(0, 255, 255), hWnd);
         pF[2] = new MyRectangle(100, 3, 4, 1, RGB(0, 0, 255), hWnd);
         for (int i = 0; i < 3; i++)
+        {
+            Data[i].pFig = pF[i];
+            Data[i].hEvent = hEvents[i] = CreateEvent(0, false, false, 0);
+            CreateThread(0, 0, ThreadFun, &Data[i], 0, 0);
+        }
+        break;
