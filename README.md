@@ -6,6 +6,9 @@ ConsoleApplication4 - код самой 7-ой лабы.
 Из-за того, что GitHub не дает загрузить основной файл (ConsoleApplication4), то я закинул его на платформу OneDrive (ссылка ниже)
 https://1drv.ms/f/s!AgLRl5i9yERW3Qfw3fjwEnPkiHGk?e=Lw87lT
 
+Демонстрация кода:
+https://1drv.ms/f/s!AgLRl5i9yERW3Q3pgZLKIlW_Hi00?e=J8e2TK
+
 Условия 7-ой лабы:
 Часть 1
 Программу, разработанную в лабораторной работе No 6, преобразовать
