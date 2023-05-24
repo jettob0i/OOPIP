@@ -3,8 +3,8 @@
 WindowsProject3 - .zip файл 6-ой лабы.
 ConsoleApplication4 - .zip файл 7-ой лабы.
 
-ConsoleAppllication4_CODE - код 7-ой лабы.
-WindowsProject3_CODE - код 6-ой лабы.
+ConsoleApplication4_CODE - код 7-ой лабы (для правильной работы сохранить файл с кодом как "ConsoleApplication4")
+WindowsProject3_CODE - код 6-ой лабы (для правильной работы сохранить файл с кодом как "WindowsProject3")
 
 Из-за того, что GitHub не дает загрузить основной файл (ConsoleApplication4), то я закинул его на платформу OneDrive (ссылка ниже)
 https://1drv.ms/f/s!AgLRl5i9yERW3Qfw3fjwEnPkiHGk?e=Lw87lT
