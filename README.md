@@ -1,7 +1,10 @@
 # Не сдана только 7-ая лаба.
 
-WindowsProject3 - консольное приложение Windows, 6-ая лаба, необходима для работы 7-ой лабы.
-ConsoleApplication4 - код самой 7-ой лабы.
+WindowsProject3 - .zip файл 6-ой лабы.
+ConsoleApplication4 - .zip файл 7-ой лабы.
+
+ConsoleAppllication4_CODE - код 7-ой лабы.
+WindowsProject3_CODE - код 6-ой лабы.
 
 Из-за того, что GitHub не дает загрузить основной файл (ConsoleApplication4), то я закинул его на платформу OneDrive (ссылка ниже)
 https://1drv.ms/f/s!AgLRl5i9yERW3Qfw3fjwEnPkiHGk?e=Lw87lT
